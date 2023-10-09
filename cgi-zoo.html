@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css" />
+    <title>Animal Serve in CGI</title>
+    <script type="text/javascript">
+        function checkInput() {
+            const inputName = document.getElementById("name").value;
+            const selectAnimal = document.getElementById("animal").value;
+            document.getElementById("nameError").innerHTML = "";
+            document.getElementById("animalError").innerHTML = "";
+            if (inputName == "") {
+                document.getElementById("nameError").innerHTML = "You must provide a name.";
+            }
+            if (selectAnimal == "") {
+                document.getElementById("animalError").innerHTML = "You Must choose an animal.";
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <form name="initialForm" action="./animals.exe" method="GET">
+        <div class="containerCGI">
+            <div class="headerArea">Pet Facts!</div>
+            <div class="division-line"></div>
+            <div class="nameArea">
+                What's your name?
+                <br>
+                <input type="text" id="name" name="name" required value="">
+                <span class="error" id="nameError" style="color: red;"></span>
+            </div>
+            <div class="selectArea">
+                What is your favorite Pet?
+                <br>
+                <select id="animal" name="animal">
+                    <option value="" disabled selected>-- Make an Animal Choice --</option>
+                    <option value="deer">Deer</option>
+                    <option value="eagle">Eagle</option>
+                    <option value="fox">Fox</option>
+                    <option value="meerkat">Meerkat</option>
+                    <option value="rabbit">Rabbit</option>
+                    <option value="tiger">Tiger</option>
+                </select>
+                <span class="error" id="animalError" style="color: red;"></span>
+            </div>
+            <div class="buttonArea">
+                <button type="submit" onclick="checkInput()">Search for My Animal</button>
+            </div>
+            <div class="division-line"></div>
+        </div>
+    </form>
+</body>
+</html>

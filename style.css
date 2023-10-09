@@ -1,0 +1,78 @@
+/* CSS styles */
+.containerCGI {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    font-family: Georgia;
+}
+
+.headerArea {
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 40px;
+    font-weight: bold;
+}
+
+.nameArea {
+    height: 70px;
+    display: flex;
+    flex-direction: column;
+    justify-content: top;
+    align-items: center;
+}
+
+.selectArea {
+    height: 70px;
+    display: flex;
+    flex-direction: column;
+    justify-content: top;
+    align-items: center;
+}
+
+.buttonArea {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.division-line {
+    border-top: 2px solid #000000;
+    margin: 20px;
+}
+
+.greetingArea {
+    font-size: 18px;
+    margin-left: 40px;
+}
+
+.imageArea {
+    width: 400px;
+    height: 400px;
+    margin-left: 40px;
+    float: left;
+	text-align: center;
+}
+
+.description-line {
+    font-size: 50px; /* Follows the inline command. 50px does not apply. */
+    flex-direction: column;
+    display: flex;
+    justify-content: center;
+    height: 400px;
+}
+
+.description-line-first {
+	margin-bottom: 40px;
+}
+
+.description-line-second {
+    font-weight: bold;
+	margin-bottom: 40px;
+}
+
+.description-line-third {
+    font-family: Times New Roman;
+}
