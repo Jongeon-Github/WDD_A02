@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-
+#include <direct.h>
 #pragma warning(disable : 4996)
 
 using namespace std;
@@ -43,30 +43,27 @@ int main() {
     printf("<div class=\"imageArea\">\n");
     printf("<img src=\"theZoo/%s.png\" alt=\"image\">\n", animal);
     printf("</div>\n");
-    
+
     //////////////////////////////////////////
 
-    //char filePath[256] = { NULL };
-    //snprintf(filePath, sizeof(filePath), "theZoo/%s.txt", animal);
-   // printf("<br>TESTTEST: %s:\n", filePath);
-    
-    FILE* fp = NULL;
-    char line[256] = { '\0' };
-    int lineCount = 1;
-    int arrLineCount = 0;
-    
-    fp = fopen("C:/localWebSite/WDD/ZOO/theZoo/fox.txt", "r");
+    char filePath[256] = { NULL };
+    snprintf(filePath, sizeof(filePath), "theZoo/%s.txt", animal);
 
+    FILE* fp;
+    fp = fopen(filePath, "r");
+    // FILE* fp = fopen("theZoo/tiger.txt", "r");
+
+    char line[256] = { '\0' };
     if (fp == NULL)
     {
         printf("Error-fopen function: Can't open file for reading\n");
         return -1;
     }
-
+    
     int count = 1;
     printf("<div class=\"description-line\">");
     while (fgets(line, sizeof(line), fp)) {
-        
+
         if (count == 1) {
             printf("<div class=\"description-line-first\" style='font-size: 18px;'>%s</div>\n", line);
         }
