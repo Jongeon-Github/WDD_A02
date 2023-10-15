@@ -1,5 +1,21 @@
+/*
+* Filename: style.css
+* Project: Assignment 2
+* By: Jongeon Lee
+* Student number: 8790144
+* Date: Oct 14, 2023
+* Description: Stylesheet for the Animal Serve web application.
+
 /* CSS styles */
-.containerCGI {
+body {
+	height: auto;
+    width: auto;
+	background-image: url('theZoo/background.jpg');
+	background-repeat : no-repeat;
+    background-size : cover;
+}
+
+.containerCGI, .containerPHP {
     text-align: center;
     display: flex;
     flex-direction: column;
@@ -7,53 +23,73 @@
 }
 
 .headerArea {
-    height: 50px;
+    height: 150px;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 40px;
+    font-size: 100px;
     font-weight: bold;
+	margin-top: 160px;
 }
 
-.nameArea {
-    height: 70px;
+.nameArea, .selectArea {
+    height: 100px;
     display: flex;
     flex-direction: column;
     justify-content: top;
     align-items: center;
+	font-size: 50px;
+	line-height: 2;
 }
 
-.selectArea {
-    height: 70px;
-    display: flex;
-    flex-direction: column;
-    justify-content: top;
-    align-items: center;
+#name, #animal {
+	width: 430px;
+	height: 250px;
+	font-size: 25px;
 }
 
-.buttonArea {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+#btnName, #btnAnimal {
+	margin-top: 20px;
+    background-color:#0a0a23;
+    color: #fff;
+    border:none;
+    border-radius:10px;
+	min-height:70px;
+    min-width: 430px;
+	font-size: 30px;
 }
+
+#btnAnimal {
+	margin-top:-70px;
+}
+
+
+#nameError, {
+	margin-top: 10px;
+}
+
 
 .division-line {
-    border-top: 2px solid #000000;
-    margin: 20px;
+    border-top: 5px solid #000000;
+	margin:auto;
+	width: 800px;
 }
 
 .greetingArea {
-    font-size: 18px;
-    margin-left: 40px;
+    font-size: 22px;
+    margin: 20px;
+	text-align: center;
+	font-family: Georgia;
 }
 
 .imageArea {
     width: 400px;
     height: 400px;
-    margin-left: 40px;
+    margin-left: 14%;
+	margin-top: 20px;
     float: left;
-	text-align: center;
+	text-align: right;
+	margin-right: 20px;
 }
 
 .description-line {
@@ -62,6 +98,8 @@
     display: flex;
     justify-content: center;
     height: 400px;
+	margin-top: 20px;
+	width: 770px;
 }
 
 .description-line-first {

@@ -1,3 +1,13 @@
+<!--
+ Filename: cgi-zoo.html
+ Project: Assignment 2
+ By: Jongeon Lee
+ Student number: 8790144
+ Date: Oct 14, 2023
+ Description: A web page that collects the user's name and their favorite animal, and then
+              redirects to a CGI script to serve information about the chosen animal.
+-->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,51 +16,79 @@
     <link rel="stylesheet" href="style.css" />
     <title>Animal Serve in CGI</title>
     <script type="text/javascript">
-        function checkInput() {
+
+        /*
+        * Function: checkName()
+        * Description: This function checks if a name is provided and displays an error message if it's missing.
+        * Parameters: None
+        * Return Values: None
+        */
+        function checkName() {
             const inputName = document.getElementById("name").value;
-            const selectAnimal = document.getElementById("animal").value;
             document.getElementById("nameError").innerHTML = "";
-            document.getElementById("animalError").innerHTML = "";
             if (inputName == "") {
                 document.getElementById("nameError").innerHTML = "You must provide a name.";
+            } else {
+                document.getElementById("nameId").style.display = "none";
+				document.forms["animalForm"].style.display = "block";
             }
+        }
+
+        /*
+        * Function: checkAnimals()
+        * Description: This function checks if an animal is chosen and redirects to a CGI script with the selected name and animal.
+        * Parameters: None
+        * Return Values: None
+        */
+        function checkAnimals() {
+            const selectAnimal = document.getElementById("animal").value;
+            document.getElementById("animalError").innerHTML = "";
             if (selectAnimal == "") {
                 document.getElementById("animalError").innerHTML = "You Must choose an animal.";
+            } else {
+                const inputName = document.getElementById("name").value;
+                const selectedAnimal = document.getElementById("animal").value;
+                document.title = 'Animal Serve in CGI';
+                const url = `./animals.exe?name=${inputName}&animal=${selectedAnimal}`;
+                window.location.href = url;
             }
         }
     </script>
 </head>
-
 <body>
-    <form name="initialForm" action="./animals.exe" method="GET">
-        <div class="containerCGI">
-            <div class="headerArea">Pet Facts!</div>
-            <div class="division-line"></div>
-            <div class="nameArea">
-                What's your name?
-                <br>
-                <input type="text" id="name" name="name" required value="">
-                <span class="error" id="nameError" style="color: red;"></span>
-            </div>
-            <div class="selectArea">
-                What is your favorite Pet?
-                <br>
-                <select id="animal" name="animal">
-                    <option value="" disabled selected>-- Make an Animal Choice --</option>
-                    <option value="deer">Deer</option>
-                    <option value="eagle">Eagle</option>
-                    <option value="fox">Fox</option>
-                    <option value="meerkat">Meerkat</option>
-                    <option value="rabbit">Rabbit</option>
-                    <option value="tiger">Tiger</option>
-                </select>
-                <span class="error" id="animalError" style="color: red;"></span>
-            </div>
-            <div class="buttonArea">
-                <button type="submit" onclick="checkInput()">Search for My Animal</button>
-            </div>
-            <div class="division-line"></div>
+    <div class="containerCGI">
+    <form name="nameForm" id="nameForm" action="./animals.exe" method="GET">
+        <div class="headerArea" id="headerId">
+            Pet Facts!
+        </div>
+        <div class="division-line"></div>
+        <div class="nameArea" id="nameId">
+            What's your name?
+            <br>
+			<input type="text" id="name" name="name" required value="" style="text-align: center;" placeholder="Enter your name!">
+            <button type="button" id="btnName" onclick="checkName()">Submit</button>
+            <span class="error" id="nameError" style="color: red;"></span>
         </div>
     </form>
+    <form name="animalForm" id="animalForm" action="./animals.exe" method="GET" style="display: none;">
+        <div class="selectArea" id="selectId">
+            What is your favorite Pet?
+            <br>
+            <select id="animal" name="animal" style="text-align: center;">
+                <option value="" disabled selected>-- Make an Animal Choice --</option>
+                <option value="deer">Deer</option>
+                <option value="eagle">Eagle</option>
+                <option value="fox">Fox</option>
+                <option value="meerkat">Meerkat</option>
+                <option value="rabbit">Rabbit</option>
+                <option value="tiger">Tiger</option>
+            </select>
+            <br>
+            <button type="button" id="btnAnimal" onclick="checkAnimals()">Search for My Animal</button>
+            <span class="error" id="animalError" style="color: red;"></span>
+        </div>
+    </form>
+    </div>
+
 </body>
 </html>
